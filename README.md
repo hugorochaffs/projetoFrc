@@ -1,9 +1,6 @@
 para rodar o servidor:
 
-estando na pasta do projeto (servidorDialogo) fazer:
+WEBSOCKET:
 
-source venv/bin/activate
+Rodar com python o arquivo server.py
 
-após habilitar o venv,
-
-sudo python3 mysite/manage.py runserver
