@@ -72,7 +72,7 @@ btnJoin.addEventListener('click',()=>{
     }
 
     //var endPoint = wsStart + loc.host + loc.pathname;
-    var endPoint = 'ws://localhost:8765';
+    var endPoint = 'ws://localhost:8765/communications/c1';
 
     console.log(endPoint);
 
