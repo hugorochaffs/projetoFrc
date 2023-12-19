@@ -99,26 +99,30 @@ function atualizaStatus(event){
     var parsedData = JSON.parse(event.data);
     var peerUsername = parsedData['peer'];
 
+    console.log(event.data);
+
     var p = guardaPessoas.find(person => person.nickname === peerUsername);
 
     if (!p){
 
-        var p = new pessoas(peerUsername, '5');
+        var p = new pessoas(peerUsername, '10');
 
         guardaPessoas.push(p);
     }
     else{
-        p.ttl = 5;
+        p.ttl = 10;
     }
-    mostraOnline();
+    
 }
 
 function enviaOnline(){
 
     var jsonStr = JSON.stringify({
         'peer': username,
+        'status':'1',
         
     });
+    
     webSocket.send(jsonStr);}
 
 
@@ -132,7 +136,6 @@ function enviaOnline(){
         if(pessoas.ttl<1)
             guardaPessoas.pop(pessoas);
     });
-
 
     
 }
@@ -151,13 +154,12 @@ function mostraOnline(){
 }
 
 setInterval(enviaOnline, 500);
+setInterval(mostraOnline, 500);
 setInterval(atualizaPessoasOnline, 1000);
 
 var messageList = document.querySelector('#message-list');
 var messageInput = document.querySelector('#msg');
 var dest = document.querySelector('#dest');
-var btnMessage = document.querySelector('#btn-send-msg');
-btnMessage.addEventListener('click', sendMsgOnClick);
 
     
 
