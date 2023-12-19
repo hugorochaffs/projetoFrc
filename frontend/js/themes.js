@@ -11,16 +11,21 @@ const tema_usuario = {};
 
 tema_usuario = {
     1: [usuario1, usuario2, usuario3],
+    2: [],
+    3: [usuario1, usuario2],
 }
 
  */
 
 function populaTemaUsuario() {
+
+    // fetch temas 
+
     const url = urlFetchUsuario;
     const usuarios = [];
 
     fetch(url).then(response => response.json()).then(data => {
-        // console.log(data);
+        // console.log('data',data);
         data.usuarios.forEach(user => {
             // console.log(user);
 
@@ -58,11 +63,12 @@ function fetchUsuariosandPopulaTemas(){
     populaTemaUsuario();
 
     fetch(url).then(response => response.json()).then(data => {
-        // console.log(data);
+        console.log('data',data);
+        console.log(tema_usuario);
         // const temas = [];
         const divThemes = document.getElementById('themes');
         data.themes.forEach(theme => {
-            console.log(theme);
+            // console.log(theme);
             
             const divtheme = document.createElement('div');
             divtheme.id = theme[0];
@@ -74,15 +80,20 @@ function fetchUsuariosandPopulaTemas(){
 
             divThemes.appendChild(divtheme);
 
-            for(const user of tema_usuario[theme[0]]){
-                const divUser = document.createElement('div');
-                divUser.id = user[0];
-                divUser.className = 'user';
-                const labelUser = document.createElement('h3');
-                labelUser.appendChild(document.createTextNode(user[1]));
-                divUser.appendChild(labelUser);
+            console.log('tema: ', theme[0], tema_usuario[theme[0]]);
+            // console.log('entrou')
+            if(tema_usuario[theme[0]]) {
 
-                divtheme.appendChild(divUser);
+                for(const user of tema_usuario[theme[0]]){
+                    const divUser = document.createElement('div');
+                    divUser.id = user[0];
+                    divUser.className = 'user';
+                    const labelUser = document.createElement('h3');
+                    labelUser.appendChild(document.createTextNode(user[1]));
+                    divUser.appendChild(labelUser);
+                    
+                    divtheme.appendChild(divUser);
+                }
             }
             // const users = fetchUsersByThemes(theme)
             
