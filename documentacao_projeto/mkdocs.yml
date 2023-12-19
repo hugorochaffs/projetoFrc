@@ -1,0 +1,9 @@
+site_name: My Docs
+
+nav:
+  - Página Inicial: 'index.md'
+  - Metodologia: 'metodologia.md'
+  - Requisitos: 'requisitos.md'
+  - Arquitetura da solução: 'arquitetura.md'
+  - Solução: 'solucao.md'
+  - Conclusão: 'conclusao.md'
