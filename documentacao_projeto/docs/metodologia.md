@@ -11,9 +11,3 @@ Das reuniões via Discord, podem-se listar:
 * **Reunião de 17/12**: Execução dos trabalhos, novas divisões de trabalho, discussões e início da escrita da documentação.
 * **Reunião de 18/12**: Implementação de diversas partes do projeto.
 * **Reunião de 19/12 - 20/12**: Implementação final do projeto.
-  
-## Histórico de versão
-
-| Versão |    Data    |      Descrição       |   Autor   |  Revisor  |
-| :----: | :--------: | :------------------: | :-------: | :-------: |
-| `1.0`  | 17/12/2023 | Adição da página de metodologia | Felipe M. |  |

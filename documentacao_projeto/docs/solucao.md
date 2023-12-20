@@ -28,9 +28,3 @@ O banco de dados da aplicação é um SQlite3 implementado também a partir de c
 - **criar_tabela_USERS**: Cria uma tabela USERS se inexistente com as colunas _id, nickname, password, themes, capacidades_ e um constraint *USERS_UK*;
 - **criar_tabela_THEMES**: Cria uma tabela THEMES se inexistente com as colunas _id, name, description_ e a constraint *THEMES_UK*;
 - **RequestHandler**: Recebe as requisições HTTP e lida com elas de acordo, criando caminhos para a obtenção de resultados de queries específicas.
-
-## Histórico de versão
-
-| Versão |    Data    |      Descrição       |   Autor   |  Revisor  |
-| :----: | :--------: | :------------------: | :-------: | :-------: |
-| `1.0`  | 17/12/2023 | Adição da página da solução | Felipe M. |  |

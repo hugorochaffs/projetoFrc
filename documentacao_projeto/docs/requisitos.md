@@ -22,9 +22,3 @@ Dentre os requisitos da aplicação, temos:
 - A aplicação deve comportar salas simultâneas;
 - Cada diálogo deve poder comportar duas ou mais pessoas;
 - A aplicação deve gerenciar estabelecimento e encerramento de diálogos.
-
-## Histórico de versão
-
-| Versão |    Data    |      Descrição       |   Autor   |  Revisor  |
-| :----: | :--------: | :------------------: | :-------: | :-------: |
-| `1.0`  | 17/12/2023 | Adição da página de requisitos | Felipe M. |  |

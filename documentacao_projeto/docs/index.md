@@ -8,20 +8,13 @@ A solução apresentada na documentação a seguir implementa comunicação via 
 
 ## Membros do grupo
 
-* Hugo - ;
+* Hugo Rocha de Moura - 180136925;
 * Felipe Mastromauro Corrêa - 211029263;
-* Marcelo - ;
-* Lucas Rodrigues - .
+* Marcelo Araújo dos Santos - 160035481;
+* Lucas Rodrigues Monteiro - 180125974.
 
 ### Sobre o projeto
 
 * **Curso**: Engenharia de Software;
 * **Disciplina**: Fundamentos de redes de computadores;
 * **Professor**: Fernando William Cruz.
-
-## Histórico de versão
-
-| Versão |    Data    |      Descrição       |   Autor   |  Revisor  |
-| :----: | :--------: | :------------------: | :-------: | :-------: |
-| `1.0`  | 17/12/2023 | Adição da página inicial | Felipe M. |  |
-| `1.1`  | 19/12/2023 | Adição de nomes completos | Felipe M. |  |

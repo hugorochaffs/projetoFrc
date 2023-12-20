@@ -21,5 +21,3 @@ Além destes pontos, a aplicação deveria ser montada em C ou Python e estar de
 ## Solução apresentada
 
 A solução desenvolvida pelo grupo utiliza-se de um servidor de WebSocket em Python para estabelecer as comunicações e verificações de status de um usuário. O banco de dados SQLite também tem sua implementação em Python. A parte Web da aplicação foi desenvolvida em HTML, CSS e JS puro, sem o uso de frameworks para sua implementação. A aplicação está disponível em um servidor Apache com certificados (para a implementação de HTTPS) no link <>.
-
-## Histórico de versão
