@@ -1,4 +1,8 @@
-var serverBanco = 'http://localhost:8001';
+
+var loc = window.location;
+    //var endPoint = wsStart + loc.host + loc.pathname;
+var host = loc.host.split(":")[0];
+var serverBanco = loc.protocol+ '//' +host + ':8001';
 var urlCad = serverBanco + '/adicionar_usuario';
 var urlPopulaThemes = serverBanco + '/getThemes';
 
