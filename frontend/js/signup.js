@@ -118,12 +118,14 @@ function cadastrar(){
 
   
       const formulario = document.getElementById('checkboxThemes');
+      const capF = document.getElementById('fCap');
   
       // Obtém todas as checkboxes dentro do formulário
       const checkboxes = formulario.querySelectorAll('input[type="checkbox"]');
   
       // Array para armazenar os valores das checkboxes marcadas
       const checkboxesMarcadas = [];
+      const radioMarcadas = [];
 
     
   
@@ -134,15 +136,25 @@ function cadastrar(){
           }
       });
   
-      // Faça algo com os valores das checkboxes marcadas
+      const radio = capF.querySelectorAll('input[type="radio"]');
+  
+      
+      // Array para armazenar os valores das checkboxes marcadas
+      radio.forEach(rad => {
+          if (rad.checked) {
+            radioMarcadas.push(rad.value);
+
+          }
+      });
       
 
     
-    function criarObjetoJSON(nickname, password, themes) {
+    function criarObjetoJSON(nickname, password) {
       var objetoJSON = {
           "nickname": nickname,
           "password": password,
-          "themes": JSON.stringify(checkboxesMarcadas)
+          "themes": JSON.stringify(checkboxesMarcadas),
+          "capacidades": radioMarcadas[0]
       };
   
       // Converte o objeto para uma string JSON
@@ -151,7 +163,7 @@ function cadastrar(){
       return jsonString;
   }
 
-  var dadosParaEnviar = criarObjetoJSON(nome.value,senha.value,'abc');
+  var dadosParaEnviar = criarObjetoJSON(nome.value,senha.value);
 
   console.log(dadosParaEnviar);
 
@@ -217,9 +229,9 @@ function enviarDadosPOST(url, dados) {
   msgError.setAttribute('style', 'display: none')
   msgError.innerHTML = ''
 
-  //  setTimeout(()=>{
-  //     window.location.href = '../html/signin.html'
-  // }, 3000)
+    setTimeout(()=>{
+    window.location.href = '../html/signin.html'
+   }, 3000)
       })
       .catch(error => {
           cmsgError.setAttribute('style', 'display: block')

@@ -9,7 +9,7 @@ PORT = 8001
 
 # Função para criar a tabela se não existir
 def criar_tabela_USERS():
-    with sqlite3.connect("banco.db") as connection:
+    with sqlite3.connect("banco2.db") as connection:
         cursor = connection.cursor()
         cursor.execute(
             """
@@ -18,6 +18,7 @@ def criar_tabela_USERS():
                 nickname VARCHAR(300) NOT NULL,
                 password VARCHAR(300) NOT NULL,
                 themes VARCHAR(300),
+                capacidades int NOT NULL,
                 constraint USERS_UK UNIQUE(nickname)
             )
             """
@@ -25,7 +26,7 @@ def criar_tabela_USERS():
         connection.commit()
 
 def criar_tabela_THEMES():
-    with sqlite3.connect("banco.db") as connection:
+    with sqlite3.connect("banco2.db") as connection:
         cursor = connection.cursor()
         cursor.execute(
             """
@@ -51,7 +52,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_header("Access-Control-Allow-Origin", "*")  # Adiciona cabeçalho CORS
             self.end_headers()
 
-            with sqlite3.connect("banco.db") as connection:
+            with sqlite3.connect("banco2.db") as connection:
                 cursor = connection.cursor()
                 cursor.execute("SELECT * FROM USERS")
                 usuarios = cursor.fetchall()
@@ -64,7 +65,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_header("Access-Control-Allow-Origin", "*")  # Adiciona cabeçalho CORS
             self.end_headers()
 
-            with sqlite3.connect("banco.db") as connection:
+            with sqlite3.connect("banco2.db") as connection:
                 cursor = connection.cursor()
                 cursor.execute("SELECT * FROM THEMES")
                 themes = cursor.fetchall()
@@ -77,7 +78,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
         #    self.send_header("Access-Control-Allow-Origin", "*")  # Adiciona cabeçalho CORS
         #    self.end_headers()
         #
-        #    with sqlite3.connect("banco.db") as connection:
+        #    with sqlite3.connect("banco2.db") as connection:
         #        cursor = connection.cursor()
         #        cursor.execute("SELECT * FROM USERS WHERE THEMES=")
         #        themes = cursor.fetchall()
@@ -94,11 +95,11 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_header("Access-Control-Allow-Origin", "*")  # Adiciona cabeçalho CORS
             self.end_headers()
 
-            with sqlite3.connect("banco.db") as connection:
+            with sqlite3.connect("banco2.db") as connection:
                 cursor = connection.cursor()
 
                 # Exemplo de como incorporar os parâmetros na query
-                query = f"SELECT id, nickname, themes FROM USERS WHERE nickname = ? AND password = ?"
+                query = f"SELECT id, nickname, themes, capacidades FROM USERS WHERE nickname = ? AND password = ?"
                 cursor.execute(query, (param1, param2))
                 usuarios = cursor.fetchall()
 
@@ -115,10 +116,11 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             nickname = dados.get("nickname")
             password = dados.get("password")
             themes = dados.get("themes")
+            capacidades = dados.get("capacidades")
 
-            with sqlite3.connect("banco.db") as connection:
+            with sqlite3.connect("banco2.db") as connection:
                 cursor = connection.cursor()
-                cursor.execute("INSERT INTO USERS (nickname, password, themes) VALUES (?, ?, ?)", (nickname, password, themes))
+                cursor.execute("INSERT INTO USERS (nickname, password, themes, capacidades) VALUES (?, ?, ?, ?)", (nickname, password, themes, capacidades))
                 connection.commit()
 
             self.send_response(200)
@@ -135,7 +137,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             name = dados.get("name")
             description = dados.get("description")
 
-            with sqlite3.connect("banco.db") as connection:
+            with sqlite3.connect("banco2.db") as connection:
                 cursor = connection.cursor()
                 cursor.execute("INSERT INTO THEMES (name, description) VALUES (?, ?)", (name, description))
                 connection.commit()
