@@ -1,4 +1,24 @@
-console.log("in main.js");
+
+var loc = window.location;
+var host = loc.host.split(":")[0];
+
+var serverBanco = loc.protocol+ '//' +host + ':8001';
+var serverWebsocket =  host + ':8765';
+
+var urlAtual = window.location.href;
+var urlClass = new URL(urlAtual);
+var tipo = urlClass.searchParams.get("tipo");
+var peer1 = urlClass.searchParams.get("peer1");
+var peer2 = urlClass.searchParams.get("peer2");
+var username = urlClass.searchParams.get("myUser");
+
+var loc = window.location;
+    var wsStart = 'ws://';
+
+    if(loc.protocol == 'https:'){
+        wsStart = 'wss://';
+    }
+
 var mapPeers = {};
 
 
@@ -47,32 +67,19 @@ function webSocketOnMessage(event){
     console.log('message:', message);
 }
 
-btnJoin.addEventListener('click',()=>{
-    username = usernameInput.value;
+function entrar(){
 
     if(username == ''){
         return;
     }
 
-    usernameInput.value = '';
-    usernameInput.disabled = true;
-    usernameInput.style.visibility = 'hidden';
-
-    btnJoin.disabled = true;
-    btnJoin.style.visibility = 'hidden';
-
     var labelUsername = document.querySelector('#label-username');
     labelUsername.innerHTML = username;
 
-    var loc = window.location;
-    var wsStart = 'ws://';
 
-    if(loc.protocol == 'https:'){
-        wsStart = 'wss://';
-    }
 
-    //var endPoint = wsStart + loc.host + loc.pathname;
-    var endPoint = 'ws://localhost:8765/communications/c1';
+  // alert(wsStart + loc.host + loc.pathname);
+    var endPoint = wsStart+serverWebsocket+'/chat/'+peer1+peer2+peer1+peer2;
 
     console.log(endPoint);
 
@@ -90,7 +97,7 @@ btnJoin.addEventListener('click',()=>{
     webSocket.addEventListener('error',(e)=>{
         console.log('Error!');
     });
-});
+}
 
 var localStream = new MediaStream();
 
@@ -346,13 +353,11 @@ function createVideo(peerUsername){
     remoteVideo.id = peerUsername + '-video';
     remoteVideo.autoplay = true;
     remoteVideo.playsInline= true;
-    remoteVideo.className = 'video';
 
     var videoWrapper = document.createElement('div');
 
-    // videoContainer.appendChild(videoWrapper);
-    // videoWrapper.appendChild(remoteVideo);
-    videoContainer.appendChild(remoteVideo);
+    videoContainer.appendChild(videoWrapper);
+    videoWrapper.appendChild(remoteVideo);
 
     return remoteVideo;
 
@@ -384,3 +389,7 @@ function getDataChannels(){
     }
     return dataChannels;
 }
+
+window.onload = function() {
+    setTimeout(entrar, 3000); // 3000 milissegundos = 3 segundos
+  };

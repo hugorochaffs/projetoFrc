@@ -238,7 +238,7 @@ function enviarDadosPOST(url, dados) {
    }, 3000)
       })
       .catch(error => {
-          cmsgError.setAttribute('style', 'display: block')
+          msgError.setAttribute('style', 'display: block')
           msgError.innerHTML = '<strong>ERRO NO</strong>'
           msgSuccess.innerHTML = ''
           msgSuccess.setAttribute('style', 'display: none')

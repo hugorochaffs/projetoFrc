@@ -238,7 +238,7 @@ function webSocketOnConvite(event){
             });
             webSocketConvites.send(jsonStrAceitaConvite);
 
-            window.location.href = "chat/"+ salaRecebida;
+            window.location.href = salaRecebida+"&myUser="+nickname;
 
         }else{
 
@@ -256,7 +256,7 @@ function webSocketOnConvite(event){
     else if(action == "aceitaConvite" && peerUsername == username){
         
         console.log(peerRemetente+" aceitou seu convite");
-        window.location.href = "chat/"+ salaRecebida;
+        window.location.href = salaRecebida+"&myUser="+nickname;
     }
     else if(action == "recusaConvite" && peerUsername == username){
         console.log(peerRemetente+" rejeitou seu convite");
@@ -270,7 +270,10 @@ function webSocketOnConvite(event){
 
 function sendConvite(peer,tipo){
 
-        var sala = "?tipo="+tipo+"&peer1="+peer+"&peer2="+username;
+        if(tipo == "video")
+            var sala = "chat_video.html?tipo="+tipo+"&peer1="+peer+"&peer2="+username;
+        else
+        var     sala = "chat.html?tipo="+tipo+"&peer1="+peer+"&peer2="+username;
 
         var jsonStr = JSON.stringify({
                'peer': peer,
