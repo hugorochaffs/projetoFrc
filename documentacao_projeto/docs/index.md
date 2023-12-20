@@ -11,6 +11,7 @@ A solução apresentada na documentação a seguir (completar depois)
 * Hugo;
 * Felipe;
 * Marcelo;
+* Rafael;
 * Lucas.
 
 ### Sobre o projeto
