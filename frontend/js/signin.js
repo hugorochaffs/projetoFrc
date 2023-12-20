@@ -1,4 +1,11 @@
-var urlDoServidor = 'http://localhost:8001/login?';
+var loc = window.location;
+    //var endPoint = wsStart + loc.host + loc.pathname;
+var host = loc.host.split(":")[0];
+var serverBanco = loc.protocol+ '//' +host + ':8001';
+
+
+const urlDoServidor = serverBanco + '/login?';
+
 
 let btn = document.querySelector('.fa-eye')
 
@@ -60,13 +67,10 @@ login(usuario.value,senha.value);
         data.usuarios.forEach(usuario => {
           const id = usuario[0];
           const userNickname = usuario[1];
-          const themes = usuario[2];
+          const capacidades = usuario[3];
 
-          console.log("ID:", id);
-          console.log("Nickname:", userNickname);
-          console.log("Themes:", themes);
 
-          window.location.href = '../../index.html?' + 'id=' + id + '&' + 'nickname=' + userNickname + '&' + 'themes=' + themes;
+          window.location.href = 'themes.html?' + 'id=' + id + '&' + 'nickname=' + userNickname + '&' + 'capacidades=' + capacidades;
         });
       } else {
         
