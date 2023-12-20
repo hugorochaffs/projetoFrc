@@ -48,6 +48,17 @@ Figura 4 - Lobby com solicitação de conexão
 ![Figura 5 - Chat de texto](./img/chattextual.jpeg)
 Figura 5 - Chat de texto
 
+As figuras 6, 7, e 8 mostram o chat de vídeo.
+
+![Figura 6 - Solicitação para conversa de vídeo](./img/solicitacaoVideo.jpeg)
+Figura 6 - Solicitação para conversa de vídeo
+
+![Figura 7 - Conversa de vídeo 1](./img/video1.jpeg)
+Figura 7 - Conversa de vídeo 1
+
+![Figura 8 - Conversa de vídeo 2](./img/video2.jpeg)
+Figura 8 - Conversa de vídeo 2
+
 ## Banco de dados
 
 O banco de dados da aplicação é um SQlite3 implementado também a partir de código Python. As funções deste banco estão definidas abaixo:
@@ -56,6 +67,7 @@ O banco de dados da aplicação é um SQlite3 implementado também a partir de c
 - **criar_tabela_THEMES**: Cria uma tabela THEMES se inexistente com as colunas _id, name, description_ e a constraint *THEMES_UK*;
 - **RequestHandler**: Recebe as requisições HTTP e lida com elas de acordo, criando caminhos para a obtenção de resultados de queries específicas.
 
-O banco de dados em execução está representado na figura 4.
+O banco de dados em execução está representado na figura 9.
 
-![Figura 5 - Banco de dados](./img/banco.jpeg)
+![Figura 9 - Banco de dados](./img/banco.jpeg)
+Figura 9 - Banco de dados
