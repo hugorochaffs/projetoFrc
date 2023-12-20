@@ -11,7 +11,8 @@ A solução apresentada na documentação a seguir implementa comunicação via 
 * Hugo Rocha de Moura - 180136925;
 * Felipe Mastromauro Corrêa - 211029263;
 * Marcelo Araújo dos Santos - 160035481;
-* Lucas Rodrigues Monteiro - 180125974.
+* Lucas Rodrigues Monteiro - 180125974;
+* Rafael Fernandes Amancio - 190036940.
 
 ### Sobre o projeto
 
