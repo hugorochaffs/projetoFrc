@@ -346,11 +346,13 @@ function createVideo(peerUsername){
     remoteVideo.id = peerUsername + '-video';
     remoteVideo.autoplay = true;
     remoteVideo.playsInline= true;
+    remoteVideo.className = 'video';
 
     var videoWrapper = document.createElement('div');
 
-    videoContainer.appendChild(videoWrapper);
-    videoWrapper.appendChild(remoteVideo);
+    // videoContainer.appendChild(videoWrapper);
+    // videoWrapper.appendChild(remoteVideo);
+    videoContainer.appendChild(remoteVideo);
 
     return remoteVideo;
 

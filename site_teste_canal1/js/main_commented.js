@@ -306,6 +306,7 @@ function createVideo(peerUsername){
     remoteVideo.id = peerUsername + '-video';
     remoteVideo.autoplay = true;
     remoteVideo.playsInline= true;
+    remoteVideo.className = 'video';
 
     var videoWrapper = document.createElement('div');
 
