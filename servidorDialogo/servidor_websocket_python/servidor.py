@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     start_server = websockets.serve(
         chat_server.handle_consumer,
-        "localhost",
+        "0.0.0.0",
         8765,
     )
 

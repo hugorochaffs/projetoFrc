@@ -1,4 +1,11 @@
-var urlDoServidor = 'http://localhost:8001/login?';
+var loc = window.location;
+    //var endPoint = wsStart + loc.host + loc.pathname;
+var host = loc.host.split(":")[0];
+var serverBanco = loc.protocol+ '//' +host + ':8001';
+
+
+const urlDoServidor = serverBanco + '/login?';
+
 
 let btn = document.querySelector('.fa-eye')
 
