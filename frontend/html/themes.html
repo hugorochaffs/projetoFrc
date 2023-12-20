@@ -5,28 +5,30 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://kit.fontawesome.com/f701b5025a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../css/themes.css" />
         <title>Trabalho final de Redes</title>
     </head>
     <body>
         <header>   
             <nav class="navigationBar">
-                <p>Trabalho final de redes</p>
-               <h2 id="saudacao">Olá, pessoa</h2>
-                <a href="/signin">Sign Out</a>
+                <p id="tFinal">Trabalho final de redes</p>
+                <h2 id="saudacao">Olá, pessoa</h2>
             </nav>
         </header>
         <div class="container">
-            <h1>Lobby</h1>
+            <h1 id="lobbyHeader">Lobby</h1>
             <div id="themes"></div>
-            
         </div>
-
-        
-
         <footer>
-            <p>Feito por Hugo, Felipe, Marcelo, Lucas e </p>
+            <p>Feito por Hugo, Felipe, Marcelo, Lucas</p>
         </footer>
+
+        <!--
+            A FAZER: implementar os botões nesse estilo via JavaScript
+        -->
+        <button class="btnCard"><i class="fa-regular fa-message"></i></button>
+        <button class="btnCard"><i class="fa-solid fa-video"></i></button>
         <script src="../js/themes.js"></script>
     </body>
 </html>
